@@ -2,19 +2,12 @@ package com.example.ui
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.example.covidapp.R
 import com.example.covidapp.api.ApiServices
 import com.example.covidapp.databinding.ActivityMainBinding
-import com.example.covidapp.datamodel.newsmodel.Root
-import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 import javax.inject.Inject
 
 
@@ -37,28 +30,16 @@ class MainActivity : AppCompatActivity() {
             }
         }
         binding.mytext.text = ""
-        getdata()
-    }
-
-    private fun getdata() {
-        viewmodel.getResponse().observe(this) { call ->
-            call.enqueue(object : Callback<Root> {
-                override fun onResponse(call: Call<Root>, response: Response<Root>) {
-                    if (response.isSuccessful) {
-                        response.body()?.articles?.forEach {
-                            binding.mytext.append("Source -> " + it.source.name + "\n")
-                            val op = it.author ?: "Fuck You author"
-                            binding.mytext.append("Author ->$op\n\n\n")
-                        }
-                    } else {
-                        binding.mytext.text = response.message().toString()
-                    }
+        viewmodel.getall.observe(this) {
+            it.articles.forEach { op ->
+                binding.mytext.apply {
+                    val auth = op.author ?: "No Arther found"
+                    append("Author ->$auth\n")
+                    append("Channel Name-> ${op.source.name} \n\n")
                 }
-
-                override fun onFailure(call: Call<Root>, t: Throwable) {
-                    binding.mytext.text = t.message.toString()
-                }
-            })
+            }
         }
     }
+
+
 }
