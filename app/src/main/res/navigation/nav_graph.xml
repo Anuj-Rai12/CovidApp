@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/myNewFragment">
+
+    <fragment
+        android:id="@+id/myNewFragment"
+        android:name="com.example.ui.contentfragment.MyNewFragment"
+        android:label="Covid News"
+        tools:layout="@layout/fragment_news" >
+        <action
+            android:id="@+id/action_myNewFragment_to_newsOverView"
+            app:destination="@id/newsOverView" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/newsOverView"
+        android:name="com.example.ui.extrafragment.NewsOverView"
+        android:label="{title}"
+        tools:layout="@layout/over_view">
+        <argument
+            android:name="title"
+            app:argType="string" />
+    </fragment>
+</navigation>

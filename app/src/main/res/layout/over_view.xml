@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.ui.extrafragment.NewsOverView">
+
+        <ImageView
+            android:id="@+id/newsImageView"
+            android:layout_width="match_parent"
+            android:layout_height="340dp"
+            android:layout_marginBottom="6dp"
+            android:scaleType="fitXY"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/avatars" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/gradent_shape"
+            app:layout_constraintBottom_toBottomOf="@id/newsImageView" />
+
+        <TextView
+            android:id="@+id/myName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:drawablePadding="4dp"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:textColor="@color/white"
+            app:drawableStartCompat="@drawable/ic_person"
+            app:layout_constraintBottom_toBottomOf="@id/newsImageView"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="UserName" />
+
+        <TextView
+            android:id="@+id/newsDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:ellipsize="end"
+            android:maxLines="4"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/newsImageView"
+            tools:text="dsjkdsgkjgdjklgdjkldgskjldsgjkldkjdsg" />
+
+        <TextView
+            android:id="@+id/newsContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:textColor="@color/grey"
+            android:textSize="19sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/newsSource"
+            tools:text="dflklfklsd;flk;dfslssfdkdskdkgdgkdghkgdhdghjdgjkdgjkdgjhdsjhdhkdhjdgsdsghdsghjk;lsd;fldsdl;dglkdlgdgl;dsl;gkldksgdlkldlgd;dgl;gdsldgsldlgdldgldgldsl;dsg;ldgslddfdsfsfjdsjksdgkgdkjdgklgkljdkgkgdkjldgsjkldgsjkdgsjkdsgjkldgkjdgsjkldgjkgskjdsgjkldgjkldjkdgsldgsjkldgsjkldgsjkldgjkldgkjldgkjldgkjldsgjklsdjklgsdksgjldgsjkldgjskl" />
+
+        <Button
+            android:id="@+id/website"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="14dp"
+            android:text="Read More"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/newsContent" />
+
+        <TextView
+            android:id="@+id/newsSource"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:drawablePadding="4dp"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:textColor="@color/grey"
+            app:drawableStartCompat="@drawable/ic_news_newtork"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/newsDesc"
+            tools:text="Source" />
+
+        <TextView
+            android:id="@+id/newsTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_margin="6dp"
+            android:drawablePadding="4dp"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:textColor="@color/grey"
+            app:drawableStartCompat="@drawable/ic_time"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/newsDesc"
+            tools:text="Time" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
