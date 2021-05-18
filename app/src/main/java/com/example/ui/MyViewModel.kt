@@ -5,6 +5,7 @@ import com.example.covidapp.api.ApiServices
 import com.example.covidapp.datamodel.newsmodel.Root
 import com.example.utils.Event
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -22,30 +23,11 @@ class MyViewModel @Inject constructor
     val getall: LiveData<Root>
         get() = datas
 
-    init {
-        try {
-            val call = apiServices.getNewsData(q = "covid")
-            call.enqueue(object : Callback<Root> {
-                override fun onResponse(call: Call<Root>, response: Response<Root>) {
-                    if (response.isSuccessful) {
-                        val op = response.body()
-                        if (op != null) {
-                            datas.value = op!!
-                        }
-                    } else {
-                        getMsgLiveData.value = Event("${response.message()}")
-                    }
-                }
-
-                override fun onFailure(call: Call<Root>, t: Throwable) {
-                    getMsgLiveData.value = Event("${t.message}")
-                }
-
-            })
-        } catch (e: IOException) {
-            getMsgLiveData.value = Event("Error ${e.message}")
-        }
-
-    }
+   init {
+       viewModelScope.launch {
+           val co=apiServices.getNewsData("covid")
+           datas.value=co
+       }
+   }
 
 }

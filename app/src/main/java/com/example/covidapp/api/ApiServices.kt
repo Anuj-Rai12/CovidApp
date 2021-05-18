@@ -15,8 +15,8 @@ interface ApiServices {
 
     @Headers("X-Api-Key: d03377d5e0704038ab5469f44f206f64")
     @GET("/v2/top-headlines")
-     fun getNewsData(
+     suspend fun getNewsData(
         @Query("q") q: String,
         @Query("country") ind: String = "in",
-    ): Call<Root>
+    ): Root
 }
