@@ -9,7 +9,7 @@
         android:id="@+id/myNewFragment"
         android:name="com.example.ui.contentfragment.MyNewFragment"
         android:label="Covid News"
-        tools:layout="@layout/fragment_news" >
+        tools:layout="@layout/fragment_news">
         <action
             android:id="@+id/action_myNewFragment_to_newsOverView"
             app:destination="@id/newsOverView" />
@@ -22,6 +22,18 @@
         tools:layout="@layout/over_view">
         <argument
             android:name="title"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_newsOverView_to_newsWebsite"
+            app:destination="@id/newsWebsite" />
+    </fragment>
+    <fragment
+        android:id="@+id/newsWebsite"
+        android:name="com.example.ui.extrafragment.NewsWebsite"
+        android:label="{website} web"
+        tools:layout="@layout/news_net">
+        <argument
+            android:name="website"
             app:argType="string" />
     </fragment>
 </navigation>

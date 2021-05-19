@@ -16,6 +16,7 @@ class MyViewModel @Inject constructor
     (private val repository: Repository) : ViewModel() {
 
 
+    var getUrl: String? = null
     private val getMsgLiveData = MutableLiveData<Event<String>>()
     val getMsgLiveDataNow: LiveData<Event<String>>
         get() = getMsgLiveData

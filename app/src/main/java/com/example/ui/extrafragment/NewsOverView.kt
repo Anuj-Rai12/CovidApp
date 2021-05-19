@@ -3,9 +3,9 @@ package com.example.ui.extrafragment
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import coil.load
 import com.example.covidapp.R
 import com.example.covidapp.databinding.OverViewBinding
@@ -16,6 +16,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class NewsOverView : Fragment(R.layout.over_view) {
     private lateinit var binding: OverViewBinding
     private val viewModel: MyViewModel by activityViewModels()
+
     @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -30,11 +31,14 @@ class NewsOverView : Fragment(R.layout.over_view) {
                 newsTime.setText("${str.first()} , ${str[1]}")
                 var co = articles.content ?: " No News Available "
                 if (articles.content != null) {
-                    co=newsDesc.text.toString().plus(articles.content)
+                    co = newsDesc.text.toString().plus(articles.content)
                 }
                 newsContent.text = co
                 website.setOnClickListener {
-                    Toast.makeText(activity, "You clicked Me", Toast.LENGTH_SHORT).show()
+                    viewModel.getUrl = articles.url
+                    val action =
+                        NewsOverViewDirections.actionNewsOverViewToNewsWebsite(articles.source.name)
+                    findNavController().navigate(action)
                 }
             }
         }
