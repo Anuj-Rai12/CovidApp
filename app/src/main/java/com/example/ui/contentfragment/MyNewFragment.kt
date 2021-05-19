@@ -36,14 +36,23 @@ class MyNewFragment : Fragment(R.layout.fragment_news) {
         }
         intiRecycle()
         setData()
+        retryIt()
+    }
+
+    private fun retryIt() {
+        binding.myRetry.setOnClickListener {
+            viewModel.retry()
+            setData()
+        }
     }
 
     private fun setData() {
-        viewModel.articlesDataS.observe(viewLifecycleOwner) {
+        viewModel.articlesDataS?.observe(viewLifecycleOwner) {
             newsAdaptor.submitList(it.data)
             binding.apply {
                 myShimerr.isVisible = it is MySealed.Loading && it.data.isNullOrEmpty()
                 internetErrorTxt.isVisible = it is MySealed.Error && it.data.isNullOrEmpty()
+                myRetry.isVisible = it is MySealed.Error && it.data.isNullOrEmpty()
                 internetErrorTxt.text = it.throwable?.localizedMessage
             }
         }

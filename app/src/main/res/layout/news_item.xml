@@ -55,6 +55,7 @@
         android:drawablePadding="4dp"
         android:ellipsize="end"
         android:gravity="center_vertical"
+        android:maxWidth="150dp"
         android:maxLines="1"
         android:textColor="@color/grey"
         app:drawableStartCompat="@drawable/ic_news_newtork"

@@ -5,9 +5,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import com.example.covidapp.datamodel.newsmodel.Articles
-import com.example.covidapp.datamodel.newsmodel.Root
 import com.example.covidapp.respo.Repository
 import com.example.utils.Event
+import com.example.utils.MySealed
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -19,13 +19,22 @@ class MyViewModel @Inject constructor
     private val getMsgLiveData = MutableLiveData<Event<String>>()
     val getMsgLiveDataNow: LiveData<Event<String>>
         get() = getMsgLiveData
-    private val dataS = MutableLiveData<Root>()
-    val getAll: LiveData<Root>
-        get() = dataS
-    val articlesDataS =repository.newsBoundResources().asLiveData()
 
+    private var data = repository.newsBoundResources()
 
-    private val articlesData = MutableLiveData<Articles>()
+    var articlesDataS: LiveData<MySealed<List<Articles>>>? = null
+
+    init {
+        val articlesDat = data.asLiveData()
+        articlesDataS = articlesDat
+    }
+
+    fun retry() {
+        articlesDataS = null
+        articlesDataS = repository.newsBoundResources().asLiveData()
+    }
+
+    private var articlesData = MutableLiveData<Articles>()
     val getAllArticles: LiveData<Articles>
         get() = articlesData
 
