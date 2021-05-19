@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/myNewFragment">
+    app:startDestination="@id/covidCaseUpdate">
 
     <fragment
         android:id="@+id/myNewFragment"
@@ -36,4 +36,9 @@
             android:name="website"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/covidCaseUpdate"
+        android:name="com.example.ui.contentfragment.CovidCaseUpdate"
+        android:label="covid_case"
+        tools:layout="@layout/covid_case" />
 </navigation>
