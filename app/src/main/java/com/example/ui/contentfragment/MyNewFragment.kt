@@ -3,6 +3,7 @@ package com.example.ui.contentfragment
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -12,6 +13,7 @@ import com.example.covidapp.databinding.FragmentNewsBinding
 import com.example.covidapp.datamodel.newsmodel.Articles
 import com.example.covidapp.recyc.NewsAdaptor
 import com.example.ui.MyViewModel
+import com.example.utils.MySealed
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -37,8 +39,13 @@ class MyNewFragment : Fragment(R.layout.fragment_news) {
     }
 
     private fun setData() {
-        viewModel.getAll.observe(viewLifecycleOwner) {
-            newsAdaptor.submitList(it.articles)
+        viewModel.articlesDataS.observe(viewLifecycleOwner) {
+            newsAdaptor.submitList(it.data)
+            binding.apply {
+                myShimerr.isVisible = it is MySealed.Loading && it.data.isNullOrEmpty()
+                internetErrorTxt.isVisible = it is MySealed.Error && it.data.isNullOrEmpty()
+                internetErrorTxt.text = it.throwable?.localizedMessage
+            }
         }
     }
 
@@ -60,5 +67,4 @@ class MyNewFragment : Fragment(R.layout.fragment_news) {
         val action = MyNewFragmentDirections.actionMyNewFragmentToNewsOverView(articles.source.name)
         findNavController().navigate(action)
     }
-
 }

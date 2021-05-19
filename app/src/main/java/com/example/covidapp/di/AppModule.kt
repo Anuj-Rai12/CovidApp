@@ -1,6 +1,9 @@
 package com.example.covidapp.di
 
+import android.app.Application
+import androidx.room.Room
 import com.example.covidapp.api.ApiServices
+import com.example.covidapp.roomdb.NewsDataBaseInstance
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -21,4 +24,13 @@ object AppModule {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(ApiServices::class.java)
+
+
+    @Provides
+    @Singleton
+    fun getDataBaseInstance(app: Application) = Room.databaseBuilder(
+        app,
+        NewsDataBaseInstance::class.java,
+        NewsDataBaseInstance.DatabaseName
+    ).build()
 }

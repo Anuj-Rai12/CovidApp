@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="6dp">
+
+    <ImageView
+        android:id="@+id/myNewsImage"
+        android:layout_width="match_parent"
+        android:layout_height="270dp"
+        android:scaleType="fitXY"
+        android:background="@color/grey"
+        tools:src="@tools:sample/avatars" />
+
+
+
+    <TextView
+        android:id="@+id/myName"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_alignBottom="@id/myNewsImage"
+        android:layout_margin="6dp"
+        android:drawablePadding="4dp"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:maxLines="1"
+        android:background="@color/grey"
+        android:textColor="@color/white"
+        tools:text="UserName" />
+
+    <TextView
+        android:id="@+id/newsTitle"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@id/myNewsImage"
+        android:layout_margin="6dp"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:background="@color/grey"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        tools:text="sfjksfkjslkjflksdsdklgjkdsjgjkldsgjklkgdjldskjlgljkdsgjkdsjkgljkdlsgjkldsgsfkjsdjkflkdsfkljsdfjkldslkjfjfdsdjkflkds" />
+
+    <TextView
+        android:id="@+id/mySource"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_below="@id/newsTitle"
+        android:layout_margin="6dp"
+        android:drawablePadding="4dp"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:maxLines="1"
+        android:textColor="@color/grey"
+        android:background="@color/grey"
+        tools:text="Source" />
+
+    <TextView
+        android:id="@+id/SourceTime"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_below="@id/newsTitle"
+        android:layout_alignParentRight="true"
+        android:layout_margin="6dp"
+        android:drawablePadding="4dp"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:maxLines="1"
+        android:textColor="@color/grey"
+        android:background="@color/grey"
+        tools:text="Time" />
+</RelativeLayout>
