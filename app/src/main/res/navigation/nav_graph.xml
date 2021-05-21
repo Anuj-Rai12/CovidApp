@@ -39,11 +39,16 @@
     <fragment
         android:id="@+id/covidCaseUpdate"
         android:name="com.example.ui.contentfragment.CovidCaseUpdate"
-        android:label="covid_case"
-        tools:layout="@layout/covid_case" >
+        android:label="{lablel}"
+        tools:layout="@layout/covid_case">
         <action
             android:id="@+id/action_covidCaseUpdate_to_listCountryState"
             app:destination="@id/listCountryState" />
+        <argument
+            android:name="lablel"
+            android:defaultValue="India"
+            app:argType="string"
+            app:nullable="false" />
     </fragment>
     <fragment
         android:id="@+id/listCountryState"
@@ -53,5 +58,10 @@
         <action
             android:id="@+id/action_listCountryState_to_covidCaseUpdate"
             app:destination="@id/covidCaseUpdate" />
+        <argument
+            android:name="CoutryOrstate"
+            android:defaultValue="Covid_List"
+            app:argType="string"
+            app:nullable="false" />
     </fragment>
 </navigation>
