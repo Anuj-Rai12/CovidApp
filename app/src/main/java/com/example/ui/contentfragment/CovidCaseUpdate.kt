@@ -4,6 +4,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.covidapp.R
 import com.example.covidapp.databinding.CovidCaseBinding
 import org.eazegraph.lib.models.PieModel
@@ -15,6 +16,9 @@ class CovidCaseUpdate : Fragment(R.layout.covid_case) {
         super.onViewCreated(view, savedInstanceState)
         binding = CovidCaseBinding.bind(view)
         setPieChart()
+        binding.Track.setOnClickListener {
+            findNavController().navigate(R.id.action_covidCaseUpdate_to_listCountryState)
+        }
     }
 
     private fun setPieChart() {
@@ -27,7 +31,7 @@ class CovidCaseUpdate : Fragment(R.layout.covid_case) {
             Color.parseColor("#29B6F6"),
         )
 
-        var data: MutableList<PieModel> = ArrayList()
+        val data: MutableList<PieModel> = ArrayList()
         for (i in desc.indices) {
             data.add(
                 PieModel(

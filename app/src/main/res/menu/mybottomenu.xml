@@ -7,7 +7,7 @@
     <item
         android:id="@+id/myNewFragment"
         android:icon="@drawable/newimage"
-        android:title="covid-News" />
+        android:title="Covid-News" />
 
 
 </menu>

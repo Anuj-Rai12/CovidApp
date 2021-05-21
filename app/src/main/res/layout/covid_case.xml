@@ -53,7 +53,7 @@
 
                     <TextView
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="20dp"
                         android:paddingLeft="10dp"
                         android:text="Total Cases" />
 
@@ -72,7 +72,7 @@
 
                     <TextView
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="20dp"
                         android:paddingLeft="10dp"
                         android:text="Recovered" />
 
@@ -91,7 +91,7 @@
 
                     <TextView
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="20dp"
                         android:paddingLeft="10dp"
                         android:text="Deaths" />
 
@@ -110,7 +110,7 @@
 
                     <TextView
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="20dp"
                         android:paddingLeft="10dp"
                         android:text="Active" />
 
@@ -123,6 +123,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/data_card"
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
         android:layout_above="@+id/btnTrack"
@@ -522,23 +523,19 @@
         android:layout_alignParentBottom="true"
         android:layout_margin="20dp"
         android:background="@color/color_one"
-        android:padding="5dp"
-        android:text="Track countries"
-        android:textColor="@android:color/white"
-        android:textSize="18sp" />
+        android:text="Global"
+        android:textColor="@android:color/white" />
 
     <Button
         android:id="@+id/Track"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_margin="20dp"
+        android:layout_alignTop="@id/btnTrack"
+        android:layout_alignRight="@id/data_card"
+        android:layout_alignBottom="@id/btnTrack"
         android:background="@color/color_one"
-        android:padding="5dp"
-        android:text="Track States"
-        android:textColor="@android:color/white"
-        android:textSize="18sp" />
+        android:text="States"
+        android:textColor="@android:color/white" />
 
 
 </RelativeLayout>

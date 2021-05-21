@@ -40,5 +40,18 @@
         android:id="@+id/covidCaseUpdate"
         android:name="com.example.ui.contentfragment.CovidCaseUpdate"
         android:label="covid_case"
-        tools:layout="@layout/covid_case" />
+        tools:layout="@layout/covid_case" >
+        <action
+            android:id="@+id/action_covidCaseUpdate_to_listCountryState"
+            app:destination="@id/listCountryState" />
+    </fragment>
+    <fragment
+        android:id="@+id/listCountryState"
+        android:name="com.example.ui.extrafragment.ListCountryState"
+        android:label="ListCountryState"
+        tools:layout="@layout/list_of_covid">
+        <action
+            android:id="@+id/action_listCountryState_to_covidCaseUpdate"
+            app:destination="@id/covidCaseUpdate" />
+    </fragment>
 </navigation>
