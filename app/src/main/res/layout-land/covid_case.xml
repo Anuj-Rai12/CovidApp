@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="180dp"
         android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
         app:cardCornerRadius="5dp"
         app:cardElevation="10dp">
@@ -128,7 +129,7 @@
         android:layout_above="@+id/btnTrack"
         android:layout_below="@+id/cardViewGraph"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
         app:cardCornerRadius="5dp"
         app:cardElevation="10dp">
@@ -443,9 +444,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-light"
-                            android:text="Last Updated Time"
-                            android:textSize="18sp" />
+                            app:drawableStartCompat="@drawable/ic_time"
+                            android:drawablePadding="10dp"
+                            />
 
                         <TextView
                             android:id="@+id/tvUpdatedTime"
@@ -477,10 +478,10 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="25dp"
                         android:layout_marginTop="10dp"
-                        android:layout_marginRight="25dp"
-                        android:layout_marginBottom="10dp"
                         android:visibility="gone"
-                        tools:visibility="visible">
+                        tools:visibility="visible"
+                        android:layout_marginRight="25dp"
+                        android:layout_marginBottom="10dp">
 
                         <TextView
                             android:id="@+id/tvStateNote"
@@ -519,7 +520,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginLeft="20dp"
+        android:layout_margin="20dp"
         android:background="@color/color_one"
         android:text="Global"
         android:textColor="@android:color/white" />

@@ -55,13 +55,13 @@
         android:name="com.example.ui.extrafragment.ListCountryState"
         android:label="{CoutryOrstate}"
         tools:layout="@layout/list_of_covid">
-        <action
-            android:id="@+id/action_listCountryState_to_covidCaseUpdate"
-            app:destination="@id/covidCaseUpdate" />
         <argument
             android:name="CoutryOrstate"
             android:defaultValue="Covid_List"
             app:argType="string"
             app:nullable="false" />
+        <action
+            android:id="@+id/action_listCountryState_to_covidCaseUpdate"
+            app:destination="@id/covidCaseUpdate" />
     </fragment>
 </navigation>

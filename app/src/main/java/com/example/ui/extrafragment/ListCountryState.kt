@@ -3,7 +3,7 @@ package com.example.ui.extrafragment
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.covidapp.R
@@ -16,7 +16,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class ListCountryState : Fragment(R.layout.list_of_covid) {
     private lateinit var binding: ListOfCovidBinding
-    private val viewModels: MyViewModel by viewModels()
+    private val viewModels: MyViewModel by activityViewModels()
 
 
     private lateinit var stateAdaptor: StateAdaptor
@@ -42,9 +42,9 @@ class ListCountryState : Fragment(R.layout.list_of_covid) {
 
     private fun itemClicked(stateWise: Statewise) {
         viewModels.getItemState(stateWise)
-        /*val action =
+        val action =
             ListCountryStateDirections.actionListCountryStateToCovidCaseUpdate(stateWise.state)
-        findNavController().navigate(action)*/
+        findNavController().navigate(action)
     }
 
     private fun intiRecycle() {

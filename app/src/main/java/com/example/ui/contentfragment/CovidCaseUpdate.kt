@@ -11,6 +11,7 @@ import com.example.covidapp.R
 import com.example.covidapp.databinding.CovidCaseBinding
 import com.example.covidapp.datamodel.statemodel.Statewise
 import com.example.ui.MyViewModel
+import com.example.utils.FlagsState
 import com.example.utils.MySealed
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
@@ -26,7 +27,11 @@ class CovidCaseUpdate : Fragment(R.layout.covid_case) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = CovidCaseBinding.bind(view)
+        if (args.lablel == "India")
             initStateData()
+        else if (args.lablel != "India" && FlagsState.maps[args.lablel] != null)
+            allStateData()
+
         binding.Track.setOnClickListener {
             val action =
                 CovidCaseUpdateDirections.actionCovidCaseUpdateToListCountryState("States Data")
@@ -36,6 +41,12 @@ class CovidCaseUpdate : Fragment(R.layout.covid_case) {
             val action =
                 CovidCaseUpdateDirections.actionCovidCaseUpdateToListCountryState("Global Data")
             findNavController().navigate(action)
+        }
+    }
+
+    private fun allStateData() {
+        viewModel.getAllstateData.observe(viewLifecycleOwner) {
+            setUI(it)
         }
     }
 
@@ -71,6 +82,15 @@ class CovidCaseUpdate : Fragment(R.layout.covid_case) {
                 tvTodayRecovered.text = state.deltarecovered
                 tvTodayDeaths.text = state.deltadeaths
                 tvUpdatedTime.text = state.lastupdatedtime
+                if (args.lablel != "India" && state.statenotes.isNotEmpty()) {
+                    reletiveStateNote.visibility = View.VISIBLE
+                    reletiveStateView.visibility = View.VISIBLE
+                    tvStateNote.text = state.statenotes
+                } else {
+                    reletiveStateNote.visibility = View.GONE
+                    reletiveStateView.visibility = View.GONE
+                }
+
             }
             values.add(0, state.confirmed.toInt())
             values.add(1, state.recovered.toInt())
