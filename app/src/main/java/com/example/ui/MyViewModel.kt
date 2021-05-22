@@ -48,7 +48,15 @@ class MyViewModel @Inject constructor
     val getAllArticles: LiveData<Articles>
         get() = articlesData
 
+    private var stateData = MutableLiveData<Statewise>()
+    val getAllstateData: LiveData<Statewise>
+        get() = stateData
+
     fun getItemTo(articles: Articles) {
         articlesData.value = articles
+    }
+
+    fun getItemState(stateWise: Statewise) {
+        stateData.value = stateWise
     }
 }

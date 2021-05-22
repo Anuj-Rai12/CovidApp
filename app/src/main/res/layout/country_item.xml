@@ -21,7 +21,7 @@
             android:layout_height="70dp"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
-            android:src="@drawable/gradent_shape"/>
+            tools:src="@drawable/gradent_shape" />
 
         <TextView
             android:id="@+id/textView"
@@ -34,9 +34,9 @@
             android:ellipsize="end"
             android:gravity="center_vertical"
             android:maxLines="1"
-            android:textColor="@color/black"
-            android:textAlignment="center"
             android:text="dfkdsgkl"
+            android:textAlignment="center"
+            android:textColor="@color/black"
             tools:ignore="RtlCompat" />
 
     </RelativeLayout>

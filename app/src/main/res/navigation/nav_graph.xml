@@ -53,7 +53,7 @@
     <fragment
         android:id="@+id/listCountryState"
         android:name="com.example.ui.extrafragment.ListCountryState"
-        android:label="ListCountryState"
+        android:label="{CoutryOrstate}"
         tools:layout="@layout/list_of_covid">
         <action
             android:id="@+id/action_listCountryState_to_covidCaseUpdate"

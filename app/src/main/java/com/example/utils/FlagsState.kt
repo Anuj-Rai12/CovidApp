@@ -1,0 +1,43 @@
+package com.example.utils
+
+class FlagsState {
+    companion object{
+         val  maps= mapOf("Jammu and Kashmir" to "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Jammu_and_Kashmir_%281952-2019%29.svg/150px-Flag_of_Jammu_and_Kashmir_%281952-2019%29.svg.png",
+             "Tamil Nadu" to "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Flag_of_Tamil_Nadu_%28proposed%29.svg/150px-Flag_of_Tamil_Nadu_%28proposed%29.svg.png",
+             "Andhra Pradesh" to "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Andhraseal.png/180px-Andhraseal.png",
+             "Arunachal Pradesh" to "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/..Arunachal_Pradesh_Flag%28INDIA%29.png/180px-..Arunachal_Pradesh_Flag%28INDIA%29.png",
+             "Assam" to "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/..Assam_Flag%28INDIA%29.png/180px-..Assam_Flag%28INDIA%29.png",
+             "Bihar" to "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Bihar_Government_Banner.png/180px-Bihar_Government_Banner.png",
+             "Chhattisgarh" to "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/..Chhattisgarh_Flag%28INDIA%29.png/180px-..Chhattisgarh_Flag%28INDIA%29.png",
+             "Goa" to "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Goa_government_banner.png/180px-Goa_government_banner.png",
+             "Gujarat" to "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/..Gujarat_Flag%28INDIA%29.png/180px-..Gujarat_Flag%28INDIA%29.png",
+             "Haryana" to "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/..Haryana_Flag%28INDIA%29.png/180px-..Haryana_Flag%28INDIA%29.png",
+             "Himachal Pradesh" to "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Himachal_Pradesh_Flag%2C_India.png/180px-Himachal_Pradesh_Flag%2C_India.png",
+             "Jharkhand" to "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Jharkhand_Rajakiya_Chihna.jpg/180px-Jharkhand_Rajakiya_Chihna.jpg",
+             "Karnataka" to "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/..Karnataka_Flag%28INDIA%29.png/180px-..Karnataka_Flag%28INDIA%29.png",
+             "Kerala" to "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Flag_of_Kerala.png/180px-Flag_of_Kerala.png",
+             "Madhya Pradesh" to "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/..Madhya_Pradesh_Flag%28INDIA%29.png/180px-..Madhya_Pradesh_Flag%28INDIA%29.png",
+             "Maharashtra" to "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/..Maharashtra_Flag%28INDIA%29.png/180px-..Maharashtra_Flag%28INDIA%29.png",
+             "Manipur" to "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/..Manipur_Flag%28INDIA%29.png/180px-..Manipur_Flag%28INDIA%29.png",
+             "Meghalaya" to "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/..Meghalaya_Flag%28INDIA%29.png/180px-..Meghalaya_Flag%28INDIA%29.png",
+             "Mizoram" to "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/..Mizoram_Flag%28INDIA%29.png/180px-..Mizoram_Flag%28INDIA%29.png",
+             "Nagaland" to "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/..Nagaland_Flag%28INDIA%29.png/180px-..Nagaland_Flag%28INDIA%29.png",
+             "Odisha" to "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Orissa_Flag%28INDIA%29.png/180px-Orissa_Flag%28INDIA%29.png",
+             "Punjab" to "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/..Punjab_Flag%28INDIA%29.png/180px-..Punjab_Flag%28INDIA%29.png",
+             "Rajasthan" to "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/..Rajasthan_Flag%28INDIA%29.png/180px-..Rajasthan_Flag%28INDIA%29.png",
+             "Sikkim" to "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Flag_of_the_Government_of_Sikkim.svg/180px-Flag_of_the_Government_of_Sikkim.svg.png",
+             "Telangana" to "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Government_of_Telangana_Logo.png/180px-Government_of_Telangana_Logo.png",
+             "Tripura" to "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/..Tiripura_Flag%28INDIA%29.png/180px-..Tiripura_Flag%28INDIA%29.png",
+             "Uttar Pradesh" to "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/..Uttar_Pradesh_Flag%28INDIA%29.png/180px-..Uttar_Pradesh_Flag%28INDIA%29.png",
+             "Uttarakhand" to "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/..Uttarakhand_Flag%28INDIA%29.png/180px-..Uttarakhand_Flag%28INDIA%29.png",
+             "West Bengal" to "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/..West_Bengal_Flag%28INDIA%29.png/180px-..West_Bengal_Flag%28INDIA%29.png",
+             "Andaman and Nicobar Islands" to "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Andaman_and_Nicobar_Administration_Banner.png/180px-Andaman_and_Nicobar_Administration_Banner.png",
+             "Chandigarh" to "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/..Chandigarh_Flag%28INDIA%29.png/180px-..Chandigarh_Flag%28INDIA%29.png",
+             "Dadra and Nagar Haveli and Daman and Diu" to "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Dadra_and_Nagar_Haveli_and_Daman_and_Diu_emblem.png/180px-Dadra_and_Nagar_Haveli_and_Daman_and_Diu_emblem.png",
+             "Delhi" to "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/..Delhi_Flag%28INDIA%29.png/180px-..Delhi_Flag%28INDIA%29.png",
+             "Ladakh" to "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Ladakh_Government_Banner.png/180px-Ladakh_Government_Banner.png",
+             "Lakshadweep" to "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Banner_of_Lakshadweep.png/180px-Banner_of_Lakshadweep.png",
+             "Puducherry" to "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/..Puducherry_Flag%28INDIA%29.png/180px-..Puducherry_Flag%28INDIA%29.png",
+        )
+    }
+}

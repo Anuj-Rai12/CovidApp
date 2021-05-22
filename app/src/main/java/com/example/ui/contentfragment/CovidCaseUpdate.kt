@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.covidapp.R
 import com.example.covidapp.databinding.CovidCaseBinding
@@ -12,17 +13,30 @@ import com.example.covidapp.datamodel.statemodel.Statewise
 import com.example.ui.MyViewModel
 import com.example.utils.MySealed
 import com.google.android.material.snackbar.Snackbar
+import dagger.hilt.android.AndroidEntryPoint
 import org.eazegraph.lib.models.PieModel
 
-
+@AndroidEntryPoint
 class CovidCaseUpdate : Fragment(R.layout.covid_case) {
     private val args: CovidCaseUpdateArgs by navArgs()
     private lateinit var binding: CovidCaseBinding
     private val viewModel: MyViewModel by activityViewModels()
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = CovidCaseBinding.bind(view)
-        initStateData()
+            initStateData()
+        binding.Track.setOnClickListener {
+            val action =
+                CovidCaseUpdateDirections.actionCovidCaseUpdateToListCountryState("States Data")
+            findNavController().navigate(action)
+        }
+        binding.btnTrack.setOnClickListener {
+            val action =
+                CovidCaseUpdateDirections.actionCovidCaseUpdateToListCountryState("Global Data")
+            findNavController().navigate(action)
+        }
     }
 
     private fun initStateData() {
@@ -30,14 +44,13 @@ class CovidCaseUpdate : Fragment(R.layout.covid_case) {
             if (!it.data?.isNullOrEmpty()!!)
                 setUI(it.data.first())
             if (it is MySealed.Loading && it.data.isNullOrEmpty()) {
-             //doing
-            }
-            else if (it is MySealed.Error && it.data.isNullOrEmpty()) {
+                //doing
+            } else if (it is MySealed.Error && it.data.isNullOrEmpty()) {
                 it.throwable?.localizedMessage?.let { it1 ->
                     Snackbar.make(
                         requireView(),
                         it1, Snackbar.LENGTH_LONG
-                    ).setAction("Retry"){
+                    ).setAction("Retry") {
                         viewModel.retryState()
                     }.show()
                 }
@@ -58,11 +71,11 @@ class CovidCaseUpdate : Fragment(R.layout.covid_case) {
                 tvTodayRecovered.text = state.deltarecovered
                 tvTodayDeaths.text = state.deltadeaths
                 tvUpdatedTime.text = state.lastupdatedtime
-                values.add(0, state.confirmed.toInt())
-                values.add(1, state.recovered.toInt())
-                values.add(2, state.deaths.toInt())
-                values.add(3, state.active.toInt())
             }
+            values.add(0, state.confirmed.toInt())
+            values.add(1, state.recovered.toInt())
+            values.add(2, state.deaths.toInt())
+            values.add(3, state.active.toInt())
             setPieChart(values)
         }
     }
