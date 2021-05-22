@@ -9,6 +9,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.covidapp.R
 import com.example.covidapp.databinding.CovidCaseBinding
+import com.example.covidapp.datamodel.gloablmodel.GloablCountryDataItem
 import com.example.covidapp.datamodel.statemodel.Statewise
 import com.example.ui.MyViewModel
 import com.example.utils.FlagsState
@@ -31,7 +32,8 @@ class CovidCaseUpdate : Fragment(R.layout.covid_case) {
             initStateData()
         else if (args.lablel != "India" && FlagsState.maps[args.lablel] != null)
             allStateData()
-
+        else
+            allGlobalData()
         binding.Track.setOnClickListener {
             val action =
                 CovidCaseUpdateDirections.actionCovidCaseUpdateToListCountryState("States Data")
@@ -41,6 +43,38 @@ class CovidCaseUpdate : Fragment(R.layout.covid_case) {
             val action =
                 CovidCaseUpdateDirections.actionCovidCaseUpdateToListCountryState("Global Data")
             findNavController().navigate(action)
+        }
+    }
+
+    private fun allGlobalData() {
+        viewModel.getAllGlobalData.observe(viewLifecycleOwner) {
+            setYourData(it)
+        }
+    }
+
+    private fun setYourData(global: GloablCountryDataItem?) {
+        val values = arrayListOf<Int>()
+        global?.let { globalCountryDataSingle ->
+            binding.apply {
+                countryOrState.text = args.lablel
+                tvCases.text = globalCountryDataSingle.cases.toString()
+                tvRecovered.text = globalCountryDataSingle.recovered.toString()
+                tvdeaths.text = globalCountryDataSingle.deaths.toString()
+                tvActive.text = globalCountryDataSingle.active.toString()
+                tvTodayCases.text = globalCountryDataSingle.todayCases.toString()
+                tvTodayRecovered.text = globalCountryDataSingle.todayDeaths.toString()
+                tvTodayDeaths.text = globalCountryDataSingle.todayDeaths.toString()
+                udat?.visibility = View.GONE
+                hid?.visibility = View.GONE
+            }
+            values.add(0, (globalCountryDataSingle.cases + globalCountryDataSingle.todayCases))
+            values.add(
+                1,
+                (globalCountryDataSingle.recovered + globalCountryDataSingle.todayRecovered)
+            )
+            values.add(2, (globalCountryDataSingle.deaths + globalCountryDataSingle.todayDeaths))
+            values.add(3, (globalCountryDataSingle.active + globalCountryDataSingle.critical))
+            setPieChart(values)
         }
     }
 
@@ -55,7 +89,9 @@ class CovidCaseUpdate : Fragment(R.layout.covid_case) {
             if (!it.data?.isNullOrEmpty()!!)
                 setUI(it.data.first())
             if (it is MySealed.Loading && it.data.isNullOrEmpty()) {
-                //doing
+                Snackbar.make(
+                    requireView(), "Loading..", Snackbar.LENGTH_SHORT
+                ).show()
             } else if (it is MySealed.Error && it.data.isNullOrEmpty()) {
                 it.throwable?.localizedMessage?.let { it1 ->
                     Snackbar.make(
@@ -82,6 +118,8 @@ class CovidCaseUpdate : Fragment(R.layout.covid_case) {
                 tvTodayRecovered.text = state.deltarecovered
                 tvTodayDeaths.text = state.deltadeaths
                 tvUpdatedTime.text = state.lastupdatedtime
+                udat?.visibility = View.VISIBLE
+                hid?.visibility = View.VISIBLE
                 if (args.lablel != "India" && state.statenotes.isNotEmpty()) {
                     reletiveStateNote.visibility = View.VISIBLE
                     reletiveStateView.visibility = View.VISIBLE
@@ -92,9 +130,9 @@ class CovidCaseUpdate : Fragment(R.layout.covid_case) {
                 }
 
             }
-            values.add(0, state.confirmed.toInt())
-            values.add(1, state.recovered.toInt())
-            values.add(2, state.deaths.toInt())
+            values.add(0, (state.confirmed.toInt() + state.deltaconfirmed.toInt()))
+            values.add(1, (state.recovered.toInt() + state.deltarecovered.toInt()))
+            values.add(2, (state.deaths.toInt() + state.deltadeaths.toInt()))
             values.add(3, state.active.toInt())
             setPieChart(values)
         }
@@ -102,7 +140,6 @@ class CovidCaseUpdate : Fragment(R.layout.covid_case) {
 
     private fun setPieChart(values: ArrayList<Int>) {
         val desc = arrayListOf("Total Cases", "Recovered", "Death", "Active")
-        /*val values = arrayListOf(100, 20, 10, 70)*/
         val colorId = arrayListOf(
             Color.parseColor("#FFA726"),
             Color.parseColor("#66BB6A"),

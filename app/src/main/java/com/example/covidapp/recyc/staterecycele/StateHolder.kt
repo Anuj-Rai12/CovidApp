@@ -3,6 +3,7 @@ package com.example.covidapp.recyc.staterecycele
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.covidapp.databinding.CountryItemBinding
+import com.example.covidapp.datamodel.gloablmodel.GloablCountryDataItem
 import com.example.covidapp.datamodel.statemodel.Statewise
 import com.example.utils.FlagsState
 
@@ -13,6 +14,19 @@ class StateHolder(private val binding: CountryItemBinding) : RecyclerView.ViewHo
             textView.text = stateWise.state
             root.setOnClickListener {
                 function(stateWise)
+            }
+        }
+    }
+
+    fun bindIt(
+        globalCountryDataItem: GloablCountryDataItem,
+        function: (GloablCountryDataItem) -> Unit
+    ) {
+        binding.apply {
+            checkBox.load(globalCountryDataItem.countryInfo.flag)
+            textView.text = globalCountryDataItem.country
+            root.setOnClickListener {
+                function(globalCountryDataItem)
             }
         }
     }

@@ -426,6 +426,7 @@
                     </RelativeLayout>
 
                     <View
+                        android:id="@+id/udat"
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:layout_marginLeft="20dp"
@@ -434,6 +435,7 @@
 
 
                     <RelativeLayout
+                        android:id="@+id/hid"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="25dp"

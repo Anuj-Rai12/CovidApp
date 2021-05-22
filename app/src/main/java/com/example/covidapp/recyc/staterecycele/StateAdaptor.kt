@@ -6,9 +6,9 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.example.covidapp.databinding.CountryItemBinding
 import com.example.covidapp.datamodel.statemodel.Statewise
-import javax.inject.Inject
 
-class StateAdaptor @Inject constructor(private val function: (Statewise) -> Unit) : ListAdapter<Statewise, StateHolder>(DIff) {
+
+class StateAdaptor  constructor(private val function: (Statewise) -> Unit) : ListAdapter<Statewise, StateHolder>(DIff) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StateHolder {
         val binding = CountryItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return StateHolder(binding)

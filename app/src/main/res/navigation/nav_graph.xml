@@ -53,10 +53,10 @@
     <fragment
         android:id="@+id/listCountryState"
         android:name="com.example.ui.extrafragment.ListCountryState"
-        android:label="{CoutryOrstate}"
+        android:label="{coutryOrstate}"
         tools:layout="@layout/list_of_covid">
         <argument
-            android:name="CoutryOrstate"
+            android:name="coutryOrstate"
             android:defaultValue="Covid_List"
             app:argType="string"
             app:nullable="false" />

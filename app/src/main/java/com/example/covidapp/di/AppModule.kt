@@ -3,6 +3,7 @@ package com.example.covidapp.di
 import android.app.Application
 import androidx.room.Room
 import com.example.covidapp.api.ApiServices
+import com.example.covidapp.api.GlobalApiService
 import com.example.covidapp.api.StateApiService
 import com.example.covidapp.roomdb.NewsDataBaseInstance
 import dagger.Module
@@ -45,4 +46,13 @@ object AppModule {
             .build()
             .create(StateApiService::class.java)
 
+    //Api Global
+    @Provides
+    @Singleton
+    fun getGlobalRetrofit(): GlobalApiService =
+        Retrofit.Builder()
+            .baseUrl(GlobalApiService.BaseUrl)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+            .create(GlobalApiService::class.java)
 }

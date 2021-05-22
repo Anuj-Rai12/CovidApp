@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
+import com.example.covidapp.datamodel.gloablmodel.GloablCountryDataItem
 import com.example.covidapp.datamodel.newsmodel.Articles
 import com.example.covidapp.datamodel.statemodel.Statewise
 import com.example.covidapp.respo.Repository
@@ -24,14 +25,17 @@ class MyViewModel @Inject constructor
 
     private var data = repository.newsBoundResources()
     private var dataState = repository.newStateBoundResource()
+    private var dataGlobal = repository.newGlobalResource()
 
     var articlesDataS: LiveData<MySealed<List<Articles>>>? = null
     var stateDataS: LiveData<MySealed<List<Statewise>>>? = null
+    var globalDataS: LiveData<MySealed<List<GloablCountryDataItem>>>? = null
 
     init {
         val articlesDat = data.asLiveData()
         articlesDataS = articlesDat
         stateDataS = dataState.asLiveData()
+        globalDataS = dataGlobal.asLiveData()
     }
 
     fun retry() {
@@ -44,6 +48,11 @@ class MyViewModel @Inject constructor
         stateDataS = dataState.asLiveData()
     }
 
+    fun retryGlobal() {
+        globalDataS = null
+        globalDataS = dataGlobal.asLiveData()
+    }
+
     private var articlesData = MutableLiveData<Articles>()
     val getAllArticles: LiveData<Articles>
         get() = articlesData
@@ -52,11 +61,19 @@ class MyViewModel @Inject constructor
     val getAllstateData: LiveData<Statewise>
         get() = stateData
 
+    private var globalData = MutableLiveData<GloablCountryDataItem>()
+    val getAllGlobalData: LiveData<GloablCountryDataItem>
+        get() = globalData
+
     fun getItemTo(articles: Articles) {
         articlesData.value = articles
     }
 
     fun getItemState(stateWise: Statewise) {
         stateData.value = stateWise
+    }
+
+    fun getItemGlobal(globalCountryDataItem: GloablCountryDataItem) {
+        globalData.value = globalCountryDataItem
     }
 }
