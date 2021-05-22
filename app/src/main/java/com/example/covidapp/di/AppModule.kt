@@ -3,6 +3,7 @@ package com.example.covidapp.di
 import android.app.Application
 import androidx.room.Room
 import com.example.covidapp.api.ApiServices
+import com.example.covidapp.api.StateApiService
 import com.example.covidapp.roomdb.NewsDataBaseInstance
 import dagger.Module
 import dagger.Provides
@@ -32,5 +33,16 @@ object AppModule {
         app,
         NewsDataBaseInstance::class.java,
         NewsDataBaseInstance.DatabaseName
-    ).build()
+    ).fallbackToDestructiveMigration().build()
+    //Api State
+
+    @Provides
+    @Singleton
+    fun getStateRetrofit(): StateApiService =
+        Retrofit.Builder()
+            .baseUrl(StateApiService.Base_Url)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+            .create(StateApiService::class.java)
+
 }

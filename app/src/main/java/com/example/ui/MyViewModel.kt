@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import com.example.covidapp.datamodel.newsmodel.Articles
+import com.example.covidapp.datamodel.statemodel.Statewise
 import com.example.covidapp.respo.Repository
 import com.example.utils.Event
 import com.example.utils.MySealed
@@ -22,17 +23,25 @@ class MyViewModel @Inject constructor
         get() = getMsgLiveData
 
     private var data = repository.newsBoundResources()
+    private var dataState = repository.newStateBoundResource()
 
     var articlesDataS: LiveData<MySealed<List<Articles>>>? = null
+    var stateDataS: LiveData<MySealed<List<Statewise>>>? = null
 
     init {
         val articlesDat = data.asLiveData()
         articlesDataS = articlesDat
+        stateDataS = dataState.asLiveData()
     }
 
     fun retry() {
         articlesDataS = null
         articlesDataS = repository.newsBoundResources().asLiveData()
+    }
+
+    fun retryState() {
+        stateDataS = null
+        stateDataS = dataState.asLiveData()
     }
 
     private var articlesData = MutableLiveData<Articles>()

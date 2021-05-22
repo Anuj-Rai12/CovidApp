@@ -432,42 +432,6 @@
                         android:layout_marginRight="20dp"
                         android:background="@color/color_two" />
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="25dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="25dp"
-                        android:layout_marginBottom="10dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-light"
-                            android:text="Today Active"
-                            android:textSize="18sp" />
-
-                        <TextView
-                            android:id="@+id/tvTodayActive"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:fontFamily="sans-serif-light"
-                            android:text="0"
-
-                            android:textAlignment="textEnd"
-                            android:textColor="@color/color_one"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-
-                    </RelativeLayout>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginRight="20dp"
-                        android:background="@color/color_two" />
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -537,5 +501,12 @@
         android:text="States"
         android:textColor="@android:color/white" />
 
+    <ProgressBar
+        android:id="@+id/MyProg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        tools:visibility="visible" />
 
 </RelativeLayout>
