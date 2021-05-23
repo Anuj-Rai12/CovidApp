@@ -87,7 +87,10 @@ class ListCountryState : Fragment(R.layout.list_of_covid) {
 
     private fun setData() {
         viewModels.stateDataS?.observe(viewLifecycleOwner) {
-            val dat = it.data?.first()?.active
+            val dat = if (it.data?.isNotEmpty()!!)
+                it.data?.first()?.active
+            else
+                "0"
             val list = arrayListOf<Statewise>()
             it.data?.forEach { state ->
                 if (state.active != dat && state.active.toInt() != 0) {

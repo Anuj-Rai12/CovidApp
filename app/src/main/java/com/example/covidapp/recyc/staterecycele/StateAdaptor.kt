@@ -24,7 +24,7 @@ class StateAdaptor  constructor(private val function: (Statewise) -> Unit) : Lis
     companion object {
         val DIff = object : DiffUtil.ItemCallback<Statewise>() {
             override fun areItemsTheSame(oldItem: Statewise, newItem: Statewise): Boolean {
-                return oldItem.lastupdatedtime == newItem.lastupdatedtime
+                return oldItem.active == newItem.active
             }
 
             override fun areContentsTheSame(oldItem: Statewise, newItem: Statewise): Boolean {

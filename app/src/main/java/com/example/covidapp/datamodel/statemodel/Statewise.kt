@@ -7,13 +7,13 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "StateCovidResult")
 data class Statewise(
+    @PrimaryKey
     val active: String,
     val confirmed: String,
     val deaths: String,
     val deltaconfirmed: String,
     val deltadeaths: String,
     val deltarecovered: String,
-    @PrimaryKey
     val lastupdatedtime: String,
     val migratedother: String,
     val recovered: String,

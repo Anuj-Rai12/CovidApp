@@ -2,6 +2,7 @@ package com.example.ui.contentfragment
 
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -101,6 +102,7 @@ class CovidCaseUpdate : Fragment(R.layout.covid_case) {
                         viewModel.retryState()
                     }.show()
                 }
+                Log.i("MyTAG", it.throwable?.message!!)
             }
         }
     }
