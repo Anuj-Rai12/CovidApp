@@ -7,6 +7,7 @@ import androidx.lifecycle.asLiveData
 import com.example.covidapp.datamodel.gloablmodel.GloablCountryDataItem
 import com.example.covidapp.datamodel.newsmodel.Articles
 import com.example.covidapp.datamodel.statemodel.Statewise
+import com.example.covidapp.datamodel.statemodel.Tested
 import com.example.covidapp.respo.Repository
 import com.example.utils.Event
 import com.example.utils.MySealed
@@ -18,6 +19,8 @@ class MyViewModel @Inject constructor
     (private val repository: Repository) : ViewModel() {
 
 
+    var setSourceUrl: String? = null
+    var setSourceSecUrl: String? = null
     var getUrl: String? = null
     private val getMsgLiveData = MutableLiveData<Event<String>>()
     val getMsgLiveDataNow: LiveData<Event<String>>
@@ -26,21 +29,29 @@ class MyViewModel @Inject constructor
     private var data = repository.newsBoundResources()
     private var dataState = repository.newStateBoundResource()
     private var dataGlobal = repository.newGlobalResource()
+    private var dataTesting = repository.newStateSaved()
 
     var articlesDataS: LiveData<MySealed<List<Articles>>>? = null
     var stateDataS: LiveData<MySealed<List<Statewise>>>? = null
     var globalDataS: LiveData<MySealed<List<GloablCountryDataItem>>>? = null
+    var testingDataS: LiveData<MySealed<Tested>>? = null
 
     init {
         val articlesDat = data.asLiveData()
         articlesDataS = articlesDat
         stateDataS = dataState.asLiveData()
         globalDataS = dataGlobal.asLiveData()
+        testingDataS = dataTesting.asLiveData()
     }
 
     fun retry() {
         articlesDataS = null
         articlesDataS = repository.newsBoundResources().asLiveData()
+    }
+
+    fun testingRetry() {
+        testingDataS = null
+        testingDataS = repository.newStateSaved().asLiveData()
     }
 
     fun retryState() {

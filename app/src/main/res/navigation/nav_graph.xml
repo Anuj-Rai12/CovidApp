@@ -30,7 +30,7 @@
     <fragment
         android:id="@+id/newsWebsite"
         android:name="com.example.ui.extrafragment.NewsWebsite"
-        android:label="{website} web"
+        android:label="{website}"
         tools:layout="@layout/news_net">
         <argument
             android:name="website"
@@ -68,5 +68,9 @@
         android:id="@+id/testingFragment"
         android:name="com.example.ui.contentfragment.TestingFragment"
         android:label="TestingFragment"
-        tools:layout="@layout/testing_fragment"/>
+        tools:layout="@layout/testing_fragment">
+        <action
+            android:id="@+id/action_testingFragment_to_newsWebsite"
+            app:destination="@id/newsWebsite" />
+    </fragment>
 </navigation>

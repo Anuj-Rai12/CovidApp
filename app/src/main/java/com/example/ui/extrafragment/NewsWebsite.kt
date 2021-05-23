@@ -29,6 +29,15 @@ class NewsWebsite : Fragment(R.layout.news_net) {
             myViewModel.getUrl?.let {
                 loadUrl(it)
             }
+            myViewModel.setSourceUrl?.let {
+                loadUrl(it)
+            }
+            myViewModel.setSourceSecUrl?.let {
+                loadUrl(it)
+            }
+            myViewModel.setSourceUrl = null
+            myViewModel.setSourceSecUrl = null
+            myViewModel.getUrl = null
             binding.myprgress.isVisible = false
         }
         val webSettings: WebSettings = binding.views.settings

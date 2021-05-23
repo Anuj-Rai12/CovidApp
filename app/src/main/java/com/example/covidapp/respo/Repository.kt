@@ -18,7 +18,7 @@ class Repository @Inject constructor(
     private val newsDao = db.getDao()
     private val stateDao = db.getStateDao()
     private val globalDao = db.getGlobalDao()
-
+    private val testingDao = db.getTestingDao()
     fun newsBoundResources() = networkBoundResource(
         query = {
             newsDao.getAllNews()
@@ -46,10 +46,10 @@ class Repository @Inject constructor(
             delay(1000)
             stateApi.getStateData().statewise
         },
-        saveFetchResult = { statewise ->
+        saveFetchResult = { stateWise ->
             db.withTransaction {
                 stateDao.deleteAllState()
-                stateDao.insertAllState(stateWise = statewise)
+                stateDao.insertAllState(stateWise = stateWise)
             }
         },
         shouldFetch = {
@@ -62,7 +62,7 @@ class Repository @Inject constructor(
             globalDao.getAllGlobal()
         },
         fetch = {
-             globalApi.getGlobalData()
+            globalApi.getGlobalData()
         },
         saveFetchResult = {
             db.withTransaction {
@@ -73,5 +73,25 @@ class Repository @Inject constructor(
         shouldFetch = {
             true
         }
+    )
+
+    fun newStateSaved() = networkBoundResource(
+        query = {
+            testingDao.getAllTesting()
+        },
+        fetch = {
+            val api = stateApi.getStateData().tested
+            val sixes = (api.size - 2)
+            api[sixes]
+        },
+        saveFetchResult = { testing ->
+            db.withTransaction {
+                testingDao.deleteAllTested()
+                testingDao.insertTested(testing)
+            }
+        },
+        shouldFetch = {
+            true
+        },
     )
 }
