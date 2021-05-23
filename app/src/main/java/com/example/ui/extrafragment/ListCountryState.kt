@@ -3,7 +3,6 @@ package com.example.ui.extrafragment
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -87,13 +86,9 @@ class ListCountryState : Fragment(R.layout.list_of_covid) {
 
     private fun setData() {
         viewModels.stateDataS?.observe(viewLifecycleOwner) {
-            val dat = if (it.data?.isNotEmpty()!!)
-                it.data?.first()?.active
-            else
-                "0"
             val list = arrayListOf<Statewise>()
             it.data?.forEach { state ->
-                if (state.active != dat && state.active.toInt() != 0) {
+                if (state.active != it.data.first().active && state.active.toInt() != 0) {
                     list.add(state)
                 }
             }

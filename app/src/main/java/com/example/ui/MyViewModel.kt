@@ -45,12 +45,12 @@ class MyViewModel @Inject constructor
 
     fun retryState() {
         stateDataS = null
-        stateDataS = dataState.asLiveData()
+        stateDataS = repository.newStateBoundResource().asLiveData()
     }
 
     fun retryGlobal() {
         globalDataS = null
-        globalDataS = dataGlobal.asLiveData()
+        globalDataS = repository.newGlobalResource().asLiveData()
     }
 
     private var articlesData = MutableLiveData<Articles>()
