@@ -3,7 +3,6 @@ package com.example.ui
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -25,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding?.root)
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.fragment) as NavHostFragment
-        appBarConfiguration = AppBarConfiguration(setOf(R.id.covidCaseUpdate, R.id.myNewFragment))
+        appBarConfiguration = AppBarConfiguration(setOf(R.id.covidCaseUpdate, R.id.testingFragment,R.id.myNewFragment))
 
         navController = navHostFragment.findNavController()
         setupActionBarWithNavController(navController, appBarConfiguration)

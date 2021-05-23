@@ -5,8 +5,13 @@
         android:icon="@drawable/ic_coronavirus"
         android:title="Cases" />
     <item
+        android:id="@+id/testingFragment"
+        android:icon="@drawable/injection_table"
+        android:title="Testing" />
+
+    <item
         android:id="@+id/myNewFragment"
-        android:icon="@drawable/newimage"
+        android:icon="@drawable/news_icon"
         android:title="Covid-News" />
 
 

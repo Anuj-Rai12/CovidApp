@@ -64,4 +64,9 @@
             android:id="@+id/action_listCountryState_to_covidCaseUpdate"
             app:destination="@id/covidCaseUpdate" />
     </fragment>
+    <fragment
+        android:id="@+id/testingFragment"
+        android:name="com.example.ui.contentfragment.TestingFragment"
+        android:label="TestingFragment"
+        tools:layout="@layout/testing_fragment"/>
 </navigation>

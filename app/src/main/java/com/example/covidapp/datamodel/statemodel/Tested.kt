@@ -1,10 +1,15 @@
 package com.example.covidapp.datamodel.statemodel
 
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
+@Entity(tableName = "Testing_Table")
 data class Tested(
-    @SerializedName("dailyrtpcrsamplescollectedicmrapplication") val dailyrtpcrsamplescollectedicmrapplication: String,
+    @SerializedName("dailyrtpcrsamplescollectedicmrapplication")
+    @PrimaryKey
+    val dailyrtpcrsamplescollectedicmrapplication: String,
     @SerializedName("firstdoseadministered") val firstdoseadministered: String,
     @SerializedName("frontlineworkersvaccinated1stdose") val frontlineworkersvaccinated1stdose: String,
     @SerializedName("frontlineworkersvaccinated2nddose") val frontlineworkersvaccinated2nddose: String,
