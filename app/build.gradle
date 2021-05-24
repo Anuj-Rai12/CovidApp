@@ -72,6 +72,8 @@ dependencies {
     implementation "androidx.activity:activity-ktx:$activity_version"
     //retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    //Inspector
+    implementation "com.squareup.okhttp3:logging-interceptor:4.9.1"
     //moshi
     implementation("com.squareup.moshi:moshi-kotlin:1.12.0")
     implementation 'com.squareup.retrofit2:converter-moshi:2.9.0'
@@ -83,8 +85,8 @@ dependencies {
     implementation "androidx.multidex:multidex:$multidex_version"
 
     //Kotlin Coroutines
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0-RC'
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.0-RC'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.0'
 
     //room dependency
     implementation "androidx.room:room-runtime:$room_version"
