@@ -314,7 +314,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="sans-serif-light"
-                            android:text="Healthworker 1 Dose"
+                            android:text="HealthWorker 1 Dose"
+                            android:layout_marginTop="5dp"
                             android:textSize="14sp" />
 
                         <TextView
@@ -352,6 +353,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="sans-serif-light"
                             android:text="HealthWorker 2 Dose"
+                            android:layout_marginTop="5dp"
                             android:textSize="14sp" />
 
                         <TextView
@@ -425,6 +427,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="sans-serif-light"
+                            android:layout_marginTop="5dp"
                             android:text="Dose Administered"
                             android:textSize="14sp" />
 
