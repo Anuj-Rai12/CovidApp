@@ -34,7 +34,8 @@
         tools:layout="@layout/news_net">
         <argument
             android:name="website"
-            app:argType="string" />
+            app:argType="string"
+            app:nullable="false"/>
     </fragment>
     <fragment
         android:id="@+id/covidCaseUpdate"

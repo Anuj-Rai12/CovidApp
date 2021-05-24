@@ -6,6 +6,52 @@
     android:layout_height="match_parent"
     tools:context="com.example.ui.extrafragment.ListCountryState">
 
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/covidShimerr"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <include layout="@layout/shimmer_country"></include>
+
+                <include layout="@layout/shimmer_country"></include>
+
+                <include layout="@layout/shimmer_country"></include>
+
+                <include layout="@layout/shimmer_country"></include>
+
+                <include layout="@layout/shimmer_country"></include>
+
+                <include layout="@layout/shimmer_country"></include>
+
+                <include layout="@layout/shimmer_country"></include>
+
+                <include layout="@layout/shimmer_country"></include>
+
+                <include layout="@layout/shimmer_country"></include>
+
+                <include layout="@layout/shimmer_country"></include>
+
+                <include layout="@layout/shimmer_country"></include>
+
+                <include layout="@layout/shimmer_country"></include>
+
+                <include layout="@layout/shimmer_country"></include>
+
+                <include layout="@layout/shimmer_country"></include>
+
+            </LinearLayout>
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/allCountryRecycleView"
         android:layout_width="match_parent"

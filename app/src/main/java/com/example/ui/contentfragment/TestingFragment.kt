@@ -90,24 +90,29 @@ class TestingFragment : Fragment(R.layout.testing_fragment) {
     }
 
     private fun setButton(string: String) {
+        Log.i("MyTag", "String  url is -> $string")
         if (viewModel.setSourceUrl.isNullOrEmpty())
             viewModel.setSourceUrl = string
-        if (viewModel.setSourceSecUrl.isNullOrEmpty() && !viewModel.setSourceUrl.isNullOrEmpty())
+        Log.i("MyTag", "Source url is ->${viewModel.setSourceUrl}")
+        if (viewModel.setSourceSecUrl.isNullOrEmpty() || viewModel.setSourceSecUrl != string)
             viewModel.setSourceSecUrl = string
+        Log.i("MyTag", "SourceSec url is ->${viewModel.setSourceSecUrl}")
         if (!viewModel.setSourceUrl.isNullOrEmpty()) {
             binding.Sourceone.setOnClickListener {
-                dir()
+                dir("Testing Source")
             }
         }
         if (!viewModel.setSourceSecUrl.isNullOrEmpty()) {
+            binding.Sourcetwo.visibility = View.VISIBLE
             binding.Sourcetwo.setOnClickListener {
-                dir()
+                dir("Testing Sources")
             }
-        }
+        } else
+            binding.Sourcetwo.visibility = View.INVISIBLE
     }
 
-    private fun dir() {
-        val action = TestingFragmentDirections.actionTestingFragmentToNewsWebsite("Testing Source")
+    private fun dir(s: String) {
+        val action = TestingFragmentDirections.actionTestingFragmentToNewsWebsite(s)
         findNavController().navigate(action)
     }
 

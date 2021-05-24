@@ -27,7 +27,6 @@
                 android:id="@+id/piechartvacc"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="15dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginBottom="15dp"
                 android:layout_weight="1"
@@ -316,7 +315,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="sans-serif-light"
                             android:text="Healthworker 1 Dose"
-                            android:textSize="18sp" />
+                            android:textSize="14sp" />
 
                         <TextView
                             android:id="@+id/healthonedose"
@@ -352,8 +351,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="sans-serif-light"
-                            android:text="Healthworker 2 Dose"
-                            android:textSize="18sp" />
+                            android:text="HealthWorker 2 Dose"
+                            android:textSize="14sp" />
 
                         <TextView
                             android:id="@+id/healthsecondose"
@@ -427,7 +426,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="sans-serif-light"
                             android:text="Dose Administered"
-                            android:textSize="18sp" />
+                            android:textSize="14sp" />
 
                         <TextView
                             android:id="@+id/doseAlloted"
@@ -436,7 +435,6 @@
                             android:layout_alignParentRight="true"
                             android:fontFamily="sans-serif-light"
                             android:text="0"
-
                             android:textAlignment="textEnd"
                             android:textColor="@color/color_one"
                             android:textSize="18sp"

@@ -60,6 +60,7 @@ class ListCountryState : Fragment(R.layout.list_of_covid) {
                 Snackbar.make(
                     requireView(), "Loading..", Snackbar.LENGTH_SHORT
                 ).show()
+                binding.covidShimerr.visibility = View.VISIBLE
             } else if (it is MySealed.Error && it.data.isNullOrEmpty()) {
                 it.throwable?.localizedMessage?.let { it1 ->
                     Snackbar.make(
@@ -70,6 +71,7 @@ class ListCountryState : Fragment(R.layout.list_of_covid) {
                     }.show()
                 }
                 Log.i("MyTAG", it.throwable?.message!!)
+                binding.covidShimerr.visibility = View.GONE
             }
         }
     }
@@ -79,6 +81,7 @@ class ListCountryState : Fragment(R.layout.list_of_covid) {
         it.forEach { globalCountryDataItem ->
             if (globalCountryDataItem.country != "India") {
                 list.add(globalCountryDataItem)
+                binding.covidShimerr.visibility = View.GONE
             }
         }
         globalAdaptor.submitList(list)
