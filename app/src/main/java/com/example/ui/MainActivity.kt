@@ -24,7 +24,14 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding?.root)
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.fragment) as NavHostFragment
-        appBarConfiguration = AppBarConfiguration(setOf(R.id.covidCaseUpdate, R.id.testingFragment,R.id.myNewFragment))
+        appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.covidCaseUpdate,
+                R.id.testingFragment,
+                R.id.prevention,
+                R.id.myNewFragment
+            )
+        )
 
         navController = navHostFragment.findNavController()
         setupActionBarWithNavController(navController, appBarConfiguration)

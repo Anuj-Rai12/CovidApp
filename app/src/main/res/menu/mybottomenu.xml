@@ -8,6 +8,10 @@
         android:id="@+id/testingFragment"
         android:icon="@drawable/injection_table"
         android:title="Testing" />
+    <item
+        android:id="@+id/prevention"
+        android:icon="@drawable/symtons_icon"
+        android:title="Prevention" />
 
     <item
         android:id="@+id/myNewFragment"
