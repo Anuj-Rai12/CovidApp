@@ -42,7 +42,7 @@
         android:ellipsize="end"
         android:maxLines="2"
         android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         tools:text="sfjksfkjslkjflksdsdklgjkdsjgjkldsgjklkgdjldskjlgljkdsgjkdsjkgljkdlsgjkldsgsfkjsdjkflkdsfkljsdfjkldslkjfjfdsdjkflkds" />
 

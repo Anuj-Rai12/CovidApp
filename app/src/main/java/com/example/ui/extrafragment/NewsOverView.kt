@@ -25,15 +25,18 @@ class NewsOverView : Fragment(R.layout.over_view) {
             binding.apply {
                 newsImageView.load(articles.urlToImage)
                 myName.text = articles.author ?: articles.source.name
-                newsDesc.text = articles.description ?: articles.title
+                newsDesc.text = articles.title
                 newsSource.text = articles.source.name
                 val str = articles.publishedAt.split("T", "Z")
                 newsTime.setText("${str.first()} , ${str[1]}")
-                var co = articles.content ?: " No News Available "
-                if (articles.content != null) {
-                    co = newsDesc.text.toString().plus(articles.content)
+                val cont = articles.content ?: " No Content Available "
+                val desc = articles.description ?: " No Description Available "
+                newsContent.apply {
+                    text = "\nDescription : \n\n"
+                    append("$desc\n\n")
+                    append("Content :\n\n")
+                    append("$cont\n")
                 }
-                newsContent.text = co
                 website.setOnClickListener {
                     viewModel.getUrl = articles.url
                     val action =
