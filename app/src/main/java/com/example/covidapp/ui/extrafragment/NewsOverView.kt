@@ -1,4 +1,4 @@
-package com.example.ui.extrafragment
+package com.example.covidapp.ui.extrafragment
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -9,7 +9,7 @@ import androidx.navigation.fragment.findNavController
 import coil.load
 import com.example.covidapp.R
 import com.example.covidapp.databinding.OverViewBinding
-import com.example.ui.MyViewModel
+import com.example.covidapp.ui.MyViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

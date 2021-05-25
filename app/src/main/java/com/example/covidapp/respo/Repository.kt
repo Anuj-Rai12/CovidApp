@@ -5,7 +5,7 @@ import com.example.covidapp.api.ApiServices
 import com.example.covidapp.api.GlobalApiService
 import com.example.covidapp.api.StateApiService
 import com.example.covidapp.roomdb.NewsDataBaseInstance
-import com.example.utils.networkBoundResource
+import com.example.covidapp.utils.networkBoundResource
 import kotlinx.coroutines.delay
 import javax.inject.Inject
 

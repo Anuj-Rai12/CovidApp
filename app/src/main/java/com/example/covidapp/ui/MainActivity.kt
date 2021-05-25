@@ -1,4 +1,4 @@
-package com.example.ui
+package com.example.covidapp.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

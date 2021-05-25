@@ -1,4 +1,4 @@
-package com.example.utils
+package com.example.covidapp.utils
 
 import kotlinx.coroutines.flow.*
 
@@ -15,7 +15,7 @@ inline fun <ResultType, RequestType> networkBoundResource(
             saveFetchResult(fetch())
             query().map { MySealed.Success(it) }
         } catch (throwable: Throwable) {
-            query().map { MySealed.Error(it,throwable) }
+            query().map { MySealed.Error(it, throwable) }
         }
     } else {
         query().map { MySealed.Success(it) }

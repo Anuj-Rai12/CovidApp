@@ -1,4 +1,4 @@
-package com.example.ui.contentfragment
+package com.example.covidapp.ui.contentfragment
 
 import android.graphics.Color
 import android.os.Bundle
@@ -10,8 +10,8 @@ import androidx.navigation.fragment.findNavController
 import com.example.covidapp.R
 import com.example.covidapp.databinding.TestingFragmentBinding
 import com.example.covidapp.datamodel.statemodel.Tested
-import com.example.ui.MyViewModel
-import com.example.utils.MySealed
+import com.example.covidapp.ui.MyViewModel
+import com.example.covidapp.utils.MySealed
 import com.google.android.material.snackbar.Snackbar
 import org.eazegraph.lib.models.PieModel
 

@@ -2,7 +2,7 @@ package com.example.covidapp.recyc.symptom
 
 import androidx.recyclerview.widget.RecyclerView
 import com.example.covidapp.databinding.PreventItemBinding
-import com.example.utils.PreventionData
+import com.example.covidapp.utils.PreventionData
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView

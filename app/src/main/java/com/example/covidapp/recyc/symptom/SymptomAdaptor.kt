@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.example.covidapp.databinding.PreventItemBinding
-import com.example.utils.PreventionData
+import com.example.covidapp.utils.PreventionData
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
 
 class SymptomAdaptor  constructor(private val function:(YouTubePlayerView)->Unit) : ListAdapter<PreventionData, SymptomHolder>(diff) {

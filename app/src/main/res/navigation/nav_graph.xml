@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/myNewFragment"
-        android:name="com.example.ui.contentfragment.MyNewFragment"
+        android:name="com.example.covidapp.ui.contentfragment.MyNewFragment"
         android:label="Covid News"
         tools:layout="@layout/fragment_news">
         <action
@@ -21,7 +21,7 @@
 
     <fragment
         android:id="@+id/newsOverView"
-        android:name="com.example.ui.extrafragment.NewsOverView"
+        android:name="com.example.covidapp.ui.extrafragment.NewsOverView"
         android:label="{title}"
         tools:layout="@layout/over_view">
         <argument
@@ -37,7 +37,7 @@
     </fragment>
     <fragment
         android:id="@+id/newsWebsite"
-        android:name="com.example.ui.extrafragment.NewsWebsite"
+        android:name="com.example.covidapp.ui.extrafragment.NewsWebsite"
         android:label="{website}"
         tools:layout="@layout/news_net">
         <argument
@@ -47,7 +47,7 @@
     </fragment>
     <fragment
         android:id="@+id/covidCaseUpdate"
-        android:name="com.example.ui.contentfragment.CovidCaseUpdate"
+        android:name="com.example.covidapp.ui.contentfragment.CovidCaseUpdate"
         android:label="{lablel}"
         tools:layout="@layout/covid_case">
         <action
@@ -65,7 +65,7 @@
     </fragment>
     <fragment
         android:id="@+id/listCountryState"
-        android:name="com.example.ui.extrafragment.ListCountryState"
+        android:name="com.example.covidapp.ui.extrafragment.ListCountryState"
         android:label="{coutryOrstate}"
         tools:layout="@layout/list_of_covid">
         <argument
@@ -83,7 +83,7 @@
     </fragment>
     <fragment
         android:id="@+id/testingFragment"
-        android:name="com.example.ui.contentfragment.TestingFragment"
+        android:name="com.example.covidapp.ui.contentfragment.TestingFragment"
         android:label="Testing"
         tools:layout="@layout/testing_fragment">
         <action
@@ -96,7 +96,7 @@
     </fragment>
     <fragment
         android:id="@+id/prevention"
-        android:name="com.example.ui.contentfragment.Prevention"
+        android:name="com.example.covidapp.ui.contentfragment.Prevention"
         android:label="Prevention"
         tools:layout="@layout/prevention_fragment" />
 </navigation>

@@ -1,4 +1,4 @@
-package com.example.ui.extrafragment
+package com.example.covidapp.ui.extrafragment
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -11,7 +11,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.navArgs
 import com.example.covidapp.R
 import com.example.covidapp.databinding.NewsNetBinding
-import com.example.ui.MyViewModel
+import com.example.covidapp.ui.MyViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 

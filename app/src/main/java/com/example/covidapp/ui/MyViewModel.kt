@@ -1,4 +1,4 @@
-package com.example.ui
+package com.example.covidapp.ui
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -9,8 +9,8 @@ import com.example.covidapp.datamodel.newsmodel.Articles
 import com.example.covidapp.datamodel.statemodel.Statewise
 import com.example.covidapp.datamodel.statemodel.Tested
 import com.example.covidapp.respo.Repository
-import com.example.utils.Event
-import com.example.utils.MySealed
+import com.example.covidapp.utils.Event
+import com.example.covidapp.utils.MySealed
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

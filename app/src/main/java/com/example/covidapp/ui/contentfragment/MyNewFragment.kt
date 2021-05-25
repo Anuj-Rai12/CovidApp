@@ -1,4 +1,4 @@
-package com.example.ui.contentfragment
+package com.example.covidapp.ui.contentfragment
 
 import android.os.Bundle
 import android.view.View
@@ -12,8 +12,8 @@ import com.example.covidapp.R
 import com.example.covidapp.databinding.FragmentNewsBinding
 import com.example.covidapp.datamodel.newsmodel.Articles
 import com.example.covidapp.recyc.NewsAdaptor
-import com.example.ui.MyViewModel
-import com.example.utils.MySealed
+import com.example.covidapp.ui.MyViewModel
+import com.example.covidapp.utils.MySealed
 import dagger.hilt.android.AndroidEntryPoint
 
 

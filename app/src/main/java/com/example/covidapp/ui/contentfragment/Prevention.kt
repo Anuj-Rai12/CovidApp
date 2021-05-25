@@ -1,4 +1,4 @@
-package com.example.ui.contentfragment
+package com.example.covidapp.ui.contentfragment
 
 import android.os.Bundle
 import android.view.View
@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.covidapp.R
 import com.example.covidapp.databinding.PreventionFragmentBinding
 import com.example.covidapp.recyc.symptom.SymptomAdaptor
-import com.example.utils.PreventionData
+import com.example.covidapp.utils.PreventionData
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
 
 class Prevention : Fragment(R.layout.prevention_fragment) {

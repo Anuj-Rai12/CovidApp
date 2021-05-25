@@ -1,4 +1,4 @@
-package com.example.utils
+package com.example.covidapp.utils
 
 class FlagsState {
     companion object{

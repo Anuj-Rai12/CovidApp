@@ -1,4 +1,4 @@
-package com.example.ui.contentfragment
+package com.example.covidapp.ui.contentfragment
 
 import android.graphics.Color
 import android.os.Bundle
@@ -12,9 +12,9 @@ import com.example.covidapp.R
 import com.example.covidapp.databinding.CovidCaseBinding
 import com.example.covidapp.datamodel.gloablmodel.GloablCountryDataItem
 import com.example.covidapp.datamodel.statemodel.Statewise
-import com.example.ui.MyViewModel
-import com.example.utils.FlagsState
-import com.example.utils.MySealed
+import com.example.covidapp.ui.MyViewModel
+import com.example.covidapp.utils.FlagsState
+import com.example.covidapp.utils.MySealed
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import org.eazegraph.lib.models.PieModel

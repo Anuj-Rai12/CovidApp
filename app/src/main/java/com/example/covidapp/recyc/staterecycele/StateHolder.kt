@@ -5,7 +5,7 @@ import coil.load
 import com.example.covidapp.databinding.CountryItemBinding
 import com.example.covidapp.datamodel.gloablmodel.GloablCountryDataItem
 import com.example.covidapp.datamodel.statemodel.Statewise
-import com.example.utils.FlagsState
+import com.example.covidapp.utils.FlagsState
 
 class StateHolder(private val binding: CountryItemBinding) : RecyclerView.ViewHolder(binding.root) {
     fun bind(stateWise: Statewise, function: (Statewise) -> Unit) {

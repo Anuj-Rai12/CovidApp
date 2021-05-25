@@ -1,4 +1,4 @@
-package com.example.ui.extrafragment
+package com.example.covidapp.ui.extrafragment
 
 import android.os.Bundle
 import android.util.Log
@@ -14,8 +14,8 @@ import com.example.covidapp.datamodel.gloablmodel.GloablCountryDataItem
 import com.example.covidapp.datamodel.statemodel.Statewise
 import com.example.covidapp.recyc.globrecycle.GlobAdaptor
 import com.example.covidapp.recyc.staterecycele.StateAdaptor
-import com.example.ui.MyViewModel
-import com.example.utils.MySealed
+import com.example.covidapp.ui.MyViewModel
+import com.example.covidapp.utils.MySealed
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 
