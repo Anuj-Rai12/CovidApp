@@ -1,7 +1,7 @@
 # Android Project
 ## _The Covid App, Kotlin_
 
-This App is Made to manage Users Task And provide all the feature need to make Set Rimender,
+This App is Made to Check Codiv Cases In India,Global and States,
 The App is Design In Kotlin And Follwed Mvvm Architecture,
 ### Implementions
  1. XML
@@ -11,8 +11,9 @@ The App is Design In Kotlin And Follwed Mvvm Architecture,
  6. MVVM Architecture 
  7. Kotlin Coroutines
  8. Some Extra JetPack Feature Like Nagavtion, RecycleView, Live Data, ViewModel fragments
- 9.  Dagger Hilt
+ 9. Dagger Hilt
 10. Kotin Flow 
+11. MVVM Architecture
 
  
 ## App Features
