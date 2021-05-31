@@ -45,20 +45,27 @@ class TestingFragment : Fragment(R.layout.testing_fragment) {
         }
     }
 
+    private fun setCheckVaccine(string: String): Int {
+        return if (string.isEmpty() || string.isBlank())
+            0
+        else
+            string.toInt()
+    }
+
     private fun setUI(tested: Tested?) {
         val values = arrayListOf<Int>()
         tested?.let { test ->
             binding.apply {
                 firstdose.text =
-                    (test.over45years1stdose.toInt() + test.over60years1stdose.toInt()).toString()
+                    (setCheckVaccine(test.over45years1stdose) + setCheckVaccine(test.over60years1stdose)).toString()
                 secondose.text =
-                    (test.over45years2nddose.toInt() + test.over60years2nddose.toInt()).toString()
-                rtpcrSampel.text = test.totalrtpcrsamplescollectedicmrapplication
-                healthonedose.text = test.healthcareworkersvaccinated1stdose
-                healthsecondose.text = test.healthcareworkersvaccinated2nddose
-                rtpcrFiled.text = test.dailyrtpcrsamplescollectedicmrapplication
+                    (setCheckVaccine(test.over45years2nddose) + setCheckVaccine(test.over60years2nddose)).toString()
+                rtpcrSampel.text = setCheckVaccine(test.totalrtpcrsamplescollectedicmrapplication).toString()
+                healthonedose.text = setCheckVaccine(test.healthcareworkersvaccinated1stdose).toString()
+                healthsecondose.text = setCheckVaccine(test.healthcareworkersvaccinated2nddose).toString()
+                rtpcrFiled.text = setCheckVaccine(test.dailyrtpcrsamplescollectedicmrapplication).toString()
                 testUpdatedTime.text = test.updatetimestamp
-                doseAlloted.text = test.totaldosesadministered
+                doseAlloted.text = setCheckVaccine(test.totaldosesadministered).toString()
                 setVisibility(View.GONE)
                 if (test.source.isNotEmpty()) {
                     setVisibility(View.VISIBLE)
@@ -80,7 +87,7 @@ class TestingFragment : Fragment(R.layout.testing_fragment) {
                     setButton(test.source4)
                 }
             }
-            values.add(test.totaldosesadministered.toInt())
+            values.add(setCheckVaccine(test.totaldosesadministered))
             values.add(binding.firstdose.text.toString().toInt())
             values.add(binding.secondose.text.toString().toInt())
             values.add(binding.healthonedose.text.toString().toInt())

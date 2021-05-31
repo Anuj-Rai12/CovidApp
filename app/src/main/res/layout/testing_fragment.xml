@@ -206,7 +206,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="sans-serif-light"
                             android:text="Rtpcr Sample"
-                            android:textSize="18sp" />
+                            android:textSize="14sp" />
 
                         <TextView
                             android:id="@+id/rtpcr_sampel"
@@ -242,7 +242,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="sans-serif-light"
                             android:text="First Dose"
-                            android:textSize="18sp" />
+                            android:textSize="14sp" />
 
                         <TextView
                             android:id="@+id/firstdose"
@@ -279,7 +279,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="sans-serif-light"
                             android:text="Second Dose"
-                            android:textSize="18sp" />
+                            android:textSize="14sp" />
 
                         <TextView
                             android:id="@+id/secondose"
@@ -391,7 +391,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="sans-serif-light"
                             android:text="Rtpcr Filed"
-                            android:textSize="18sp" />
+                            android:textSize="14sp" />
 
                         <TextView
                             android:id="@+id/rtpcr_filed"
