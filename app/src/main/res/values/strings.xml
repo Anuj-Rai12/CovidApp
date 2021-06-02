@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">CovidApp</string>
+    <string name="hipperlink"><a href="https://under45.in/">Are You Under 45</a></string>
 </resources>
