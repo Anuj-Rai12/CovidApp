@@ -11,6 +11,7 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
@@ -80,21 +81,31 @@ class NewsOverView : Fragment(R.layout.over_view) {
 
     private fun shareImage() {
         if (imageUrl.isNullOrEmpty()) {
-            val share = Intent(Intent.ACTION_SEND)
-            share.type = "text/plain"
-            share.addFlags(Intent.FLAG_ACTIVITY_NEW_DOCUMENT)
-            share.putExtra(Intent.EXTRA_TEXT, "$newsTitle \n\n$newsUrl")
-            startActivity(Intent.createChooser(share, "Share News!"))
+            shareText()
         } else {
             lifecycleScope.launch {
-                Log.d("MYTAG", "shareImage Content Url is : ${bitUrl(getMyBitmap())}")
-                val intent = Intent(Intent.ACTION_SEND)
-                intent.type = "image/*"
-                intent.putExtra(Intent.EXTRA_STREAM, bitUrl(getMyBitmap()))
-                intent.putExtra(Intent.EXTRA_TEXT, "$newsTitle \n\n$newsUrl")
-                startActivity(Intent.createChooser(intent, "Share News!"))
+                Log.i("MYTAG", "shareImage Content Url is : ${bitUrl(getMyBitmap())}")
+                if (bitUrl(getMyBitmap()) != null) {
+                    val intent = Intent(Intent.ACTION_SEND).apply {
+                        type = "image/*"
+                        putExtra(Intent.EXTRA_STREAM, bitUrl(getMyBitmap()))
+                        putExtra(Intent.EXTRA_TEXT, "$newsTitle \n\n$newsUrl")
+                    }
+                    startActivity(Intent.createChooser(intent, "Share News!"))
+                } else {
+                    Log.i("ONETAG", "shareImage: Try TO Share Text Only")
+                    shareText()
+                }
             }
         }
+    }
+
+    private fun shareText() {
+        val share = Intent(Intent.ACTION_SEND)
+        share.type = "text/plain"
+        share.addFlags(Intent.FLAG_ACTIVITY_NEW_DOCUMENT)
+        share.putExtra(Intent.EXTRA_TEXT, "$newsTitle \n\n$newsUrl")
+        startActivity(Intent.createChooser(share, "Share News!"))
     }
 
     private fun bitUrl(bitmap: Bitmap): Uri? {
@@ -106,6 +117,7 @@ class NewsOverView : Fragment(R.layout.over_view) {
         )
         return Uri.parse(mediaStore)
     }
+
     private suspend fun getMyBitmap(): Bitmap {
         val loading = ImageLoader(requireContext())
         val request = ImageRequest.Builder(requireContext())
