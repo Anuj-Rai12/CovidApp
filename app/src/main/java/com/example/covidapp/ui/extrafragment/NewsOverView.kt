@@ -11,7 +11,6 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.View
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
@@ -25,6 +24,7 @@ import com.example.covidapp.databinding.OverViewBinding
 import com.example.covidapp.ui.MyViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import java.io.ByteArrayOutputStream
 
 
 @AndroidEntryPoint
@@ -108,16 +108,12 @@ class NewsOverView : Fragment(R.layout.over_view) {
         startActivity(Intent.createChooser(share, "Share News!"))
     }
 
-    private fun bitUrl(bitmap: Bitmap): Uri? {
-        val mediaStore = MediaStore.Images.Media.insertImage(
-            activity?.contentResolver,
-            bitmap,
-            null,
-            null
-        )
-        return Uri.parse(mediaStore)
+    private fun  bitUrl(bitmap: Bitmap): Uri? {
+        val byteArray=ByteArrayOutputStream()
+        bitmap.compress(Bitmap.CompressFormat.JPEG,100,byteArray)
+        val path=MediaStore.Images.Media.insertImage(activity?.contentResolver, bitmap,"IMG_" + System.currentTimeMillis(), null)
+        return Uri.parse(path)
     }
-
     private suspend fun getMyBitmap(): Bitmap {
         val loading = ImageLoader(requireContext())
         val request = ImageRequest.Builder(requireContext())
